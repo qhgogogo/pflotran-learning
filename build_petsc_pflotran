@@ -1,0 +1,36 @@
+# Load the modules
+module purge
+module load cmake/3.19.6 gcc/8.1.0 openmpi/4.0.1
+
+# clone the repo
+git clone https://gitlab.com/petsc/petsc.git petsc_v3.18.4
+cd petsc_v3.18.4
+git checkout v3.18.4
+
+# set PETSc-related environmental variables
+export PETSC_DIR=$PWD
+export PETSC_ARCH=gcc-8-1-0-compy
+
+# configure PETSc
+./configure \
+--download-parmetis=yes \
+--download-metis=yes \
+--download-zlib \
+--download-hdf5=yes \
+--with-hdf5-fortran-bindings=yes \
+--download-hypre=yes \
+--download-mumps=yes \
+--download-scalapack=yes \
+--download-blas=yes \
+--download-lapack=yes \
+--download-fblaslapack=yes \
+--download-sowing=1 \
+--download-triangle=yes \
+--download-netcdf=yes \
+--download-pnetcdf=yes \
+--with-mpi-dir=/share/apps/openmpi/4.0.1/gcc/8.1.0 \
+PETSC_ARCH=${PETSC_ARCH}
+
+# You will next get a message to compile PETSc
+
+# Next compile PFLOTRAN
