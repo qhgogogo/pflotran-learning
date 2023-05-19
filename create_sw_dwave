@@ -1,3 +1,10 @@
 git checkout gbisht/pm-surface
 git checkout -b hanqiu/pflotran_sw
 git push -u origin hanqiu/pflotran_sw
+git reset --hard origin/gbisht/pm-dwave
+git merge --ff-only  % may not be useful
+
+
+srun .... -dwave_ts_solution binary:soln.dat
+addpath /qfs/people/qiuh347/petsc/petsc_v3.18.4/share/petsc/matlab
+soln = PetscBinaryRead('soln.dat');
