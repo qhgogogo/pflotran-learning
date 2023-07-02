@@ -1,4 +1,6 @@
 git checkout gbisht/pm-surface
+
+git rev-parse --abbrev-ref HEAD % show the current branch name
 git checkout -b hanqiu/pflotran_sw
 git push -u origin hanqiu/pflotran_sw
 git reset --hard origin/gbisht/pm-dwave
